@@ -45,8 +45,8 @@ class ProjectController extends Controller
 
         $newProject = new Project();
 
-        if($request->hasFile('image')) {
-            
+        if ($request->hasFile('image')) {
+
             $img_path = Storage::disk('public')->put('imagePro', $request->image);
             $newProject['image'] = $img_path;
 
@@ -55,7 +55,7 @@ class ProjectController extends Controller
         $newProject->fill($request->all());
 
         // salviamo lo slug
-        $newProject->slug = Str::slug($request->title);
+        $newProject->slug = Str::slug($request->name);
 
         $newProject->save();
 
@@ -90,24 +90,24 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      */
     public function update(StoreProjectRequest $request, Project $project)
-    {        
+    {
         $project->fill($request->all());
 
-        if($request->hasFile('image')) {
-            
+        if ($request->hasFile('image')) {
+
             $img_path = Storage::disk('public')->put('imagePro', $request->image);
             $project['image'] = $img_path;
 
         }
 
         // aggiorno lo slug
-        $project->slug = Str::slug($request->title);
+        $project->slug = Str::slug($request->name);
 
         $project->save();
 
         $project->technologies()->sync($request->technologies);
 
-        return redirect()->route('admin.projects.show', $project->id);
+        return redirect()->route('admin.projects.show', $project);
     }
 
     /**
