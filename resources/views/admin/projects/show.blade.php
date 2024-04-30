@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <a href="{{route('admin.projects.edit', $project->id)}}" class="btn btn-warning mx-2">Modifica</a>
+            <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-warning mx-2">Modifica</a>
 
             <a href="{{route('admin.projects.index')}}" class="btn btn-primary my-5 text-center ">Torna alla Home</a>
         </div>

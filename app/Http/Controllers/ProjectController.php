@@ -9,6 +9,9 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+// importo la libreria Str per la gestione delle stringhe
+use Illuminate\Support\Str;
+
 class ProjectController extends Controller
 {
     /**
@@ -50,6 +53,9 @@ class ProjectController extends Controller
         }
 
         $newProject->fill($request->all());
+
+        // salviamo lo slug
+        $newProject->slug = Str::slug($request->title);
 
         $newProject->save();
 
@@ -93,6 +99,9 @@ class ProjectController extends Controller
             $project['image'] = $img_path;
 
         }
+
+        // aggiorno lo slug
+        $project->slug = Str::slug($request->title);
 
         $project->save();
 
