@@ -4,7 +4,7 @@
 <div class="container">
     <h1 class="text-primary py-5">MODIFICA IL TUO PROGETTO</h1>
 
-    <form action="{{route('admin.projects.update', $project->id)}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         @method('PUT')
@@ -95,7 +95,7 @@
 
         <div>
             <button type="submit" class="btn btn-primary my-5">Salva</button>
-            <a href="{{route('admin.projects.show', $project->id)}}" class="btn btn-primary my-5 mx-2">Torna al progetto</a>
+            <a href="{{route('admin.projects.show', $project)}}" class="btn btn-primary my-5 mx-2">Torna al progetto</a>
         </div>
 
     </form>
