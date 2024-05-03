@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,6 @@ Route::get('/projects', [ProjectController::class, 'index']);
 
 //rotta per la show del singolo post
 Route::get('/projects/{slug}', [ProjectController::class, 'show']);
+
+//rotta per i dati dell'email di contatto
+Route::post('/new-contact', [LeadController::class, 'store']);

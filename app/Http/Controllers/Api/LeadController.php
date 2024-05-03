@@ -7,5 +7,13 @@ use Illuminate\Http\Request;
 
 class LeadController extends Controller
 {
-    //
+    public function store() {
+
+        //restituisco un json true
+        return response()->json([
+            'success' => true,
+        ]);
+
+        
+    }
 }
