@@ -7,29 +7,22 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
-use Faker\Generator as Faker;
-
 class ProjectSeeder extends Seeder
 {
-    public function run(Faker $faker): void
+    public function run($projects): void
     {
 
-        for ($i = 0; $i < 12; $i++) {
+        foreach ($projects as $project) {
             $newProject = new Project();
 
-            $newProject->name = $faker->word();
+            $newProject->name = $project['name'];
             $newProject->slug = Str::slug($newProject->name);
-            $newProject->description = $faker->paragraph();
-            $newProject->image = $faker->imageUrl(640, 480, 'animals', true);
-            $newProject->link_GitHub = $faker->word();
+            $newProject->description = $project['description'];
+            $newProject->image = $project['image'];
+            $newProject->link_GitHub = $project['link_GitHub'];
 
             $newProject->save();
         }
-
-
-
-
-
 
     }
 }
