@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-primary py-5">AGGIUNGI LA TUA TECNOLOGIA</h1>
+    <h1 class="text-primary py-5">AGGIUNGI LA TUA CATEGORIA</h1>
 
     <form action="{{route('admin.types.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
